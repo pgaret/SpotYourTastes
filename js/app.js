@@ -56,7 +56,7 @@ function getMusicInfo(){
 						'Authorization': 'Bearer ' + access_token
 					},
 					success: function(response) {
-            console.log(response)
+            // console.log(response)
             let h1 = document.createElement('h1')
             let t = document.createTextNode(response.id)
             h1.append(t)
@@ -69,16 +69,14 @@ function getMusicInfo(){
             'Authorization': 'Bearer ' + access_token
           },
           success: function(response) {
-            console.log(response)
+            // console.log(response)
             tracks = response.items
             let h3 = document.createElement('h3')
             let t = document.createTextNode('Top Tracks')
             h3.append(t)
             document.getElementById('top_tracks').append(h3)
             for (let i = 0; i < response.items.length; i++){
-              let br = document.createElement('br')
-              let br1 = document.createElement('br')
-              let br2 = document.createElement('br')
+              let br = document.createElement('br'); let br1 = document.createElement('br'); let br2 = document.createElement('br')
               let span = document.createElement('span')
               span.className = 'list_item'
               let img_url = response.items[i].album.images.length > 0 ? response.items[i].album.images[0].url : 'img/placeholder1.png'
@@ -92,8 +90,7 @@ function getMusicInfo(){
               let img = document.createElement('img')
               img.src = img_url
               img.className = 'list_item-image'
-              span.append(img)
-              span.append(t_span)
+              span.append(img); span.append(t_span)
               document.getElementById('top_tracks').append(span)
             }
           }
@@ -104,15 +101,14 @@ function getMusicInfo(){
             'Authorization': 'Bearer ' + access_token
           },
           success: function(response) {
-            console.log(response)
+            // console.log(response)
             artists = response.items
             let h3 = document.createElement('h3')
             let t = document.createTextNode('Top Artists')
             h3.append(t)
             document.getElementById('top_artists').append(h3)
             for (let i = 0; i < response.items.length; i++){
-              let br = document.createElement('br')
-              let br1 = document.createElement('br')
+              let br = document.createElement('br'); let br1 = document.createElement('br')
               let span = document.createElement('span')
               span.className = 'list_item'
               let img_url = response.items[i].images.length > 0 ? response.items[i].images[0].url : 'img/placeholder1.png'
@@ -126,8 +122,7 @@ function getMusicInfo(){
               let img = document.createElement('img')
               img.src = img_url
               img.className = 'list_item-image'
-              span.append(img)
-              span.append(t_span)
+              span.append(img); span.append(t_span)
               document.getElementById('top_artists').append(span)
             }
           }
@@ -138,7 +133,7 @@ function getMusicInfo(){
             'Authorization': 'Bearer ' + access_token
           },
           success: function(response) {
-            console.log(response)
+            // console.log(response)
             handleRecentlyPlayed(response)
           }
       });
@@ -150,7 +145,7 @@ function getMusicInfo(){
 
 function handleRecentlyPlayed(response){
   if (tracks.length > 0 && artists.length > 0){
-    console.log(response)
+    // console.log(response)
     let h3 = document.createElement('h3')
     let t = document.createTextNode('Recently Played')
     h3.append(t)
