@@ -172,8 +172,8 @@ function handleRecentlyPlayed(response){
       }
       let t_name = document.createTextNode(response.items[i].track.name+top_track)
       let t_artist = document.createTextNode(response.items[i].track.artists[0].name+top_artist)
-      span.append(t_name); p.append(br); p.append(t_artist);
-      document.getElementById('recently_played').append(p)
+      span.append(t_name); span.append(br); span.append(t_artist);
+      document.getElementById('recently_played').append(span)
     }
   }
   else {
