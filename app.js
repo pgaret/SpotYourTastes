@@ -73,6 +73,12 @@ function getMusicInfo(){
               let span = document.createElement('span')
               span.className = 'top_artist'
               let t = document.createTextNode(response.items[i].name)
+              if (response.items[i].images.length > 0){
+                let img = document.createElement('img')
+                img.src = response.items[i].images[0]
+                img.className = 'top_artist-image'
+                span.append(img)
+              }
               span.append(t)
               body.append(span)
             }
