@@ -15,7 +15,7 @@ function handleSpotify(){
 	var state = generateRandomString(16)
 
 	localStorage.setItem(state_key, state)
-	var scope = 'user-read-email user-top-read user-library-read user-follow-read'
+	var scope = 'user-read-email user-top-read user-library-read user-follow-read user-read-recently-played'
 
 	var url = 'https://accounts.spotify.com/authorize?response_type=token'
 	url += '&client_id='+encodeURIComponent(client_id)
