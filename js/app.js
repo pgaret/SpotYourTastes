@@ -76,7 +76,7 @@ function getMusicInfo(){
               let t_name = document.createTextNode(response.items[i].name)
               let t_pop = document.createTextNode(response.items[i].popularity+"/100")
               t_span.className = 'list_item-caption'
-              t_span.append(tname); t_span.append(br); t_span.append(t_pop)
+              t_span.append(t_name); t_span.append(br); t_span.append(t_pop)
               let img = document.createElement('img')
               img.src = img_url
               img.className = 'list_item-image'
