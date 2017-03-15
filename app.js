@@ -75,7 +75,7 @@ function getMusicInfo(){
               let t = document.createTextNode(response.items[i].name)
               if (response.items[i].images.length > 0){
                 let img = document.createElement('img')
-                img.src = response.items[i].images[0]
+                img.src = response.items[i].images[0].url
                 img.className = 'top_artist-image'
                 span.append(img)
               }
