@@ -148,6 +148,12 @@ function getMusicInfo(){
 	}
 }
 
+function logout(){
+  debugger
+  params = {}
+  window.url = 'pgaret.github.io/SpotYourTastes'
+}
+
 function handleRecentlyPlayed(response){
   if (tracks.length > 0 && artists.length > 0){
     console.log(response)
