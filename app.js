@@ -48,6 +48,18 @@ function getMusicInfo(){
 		localStorage.removeItem('spotify_auth_state')
 		if (access_token){
 			$.ajax({
+					url: 'https://api.spotify.com/v1/me/top',
+					headers: {
+						'Authorization': 'Bearer ' + access_token
+					},
+					success: function(response) {
+						console.log(response)
+					}
+			});
+		} else {
+				console.log("Fail")
+		}
+			$.ajax({
 					url: 'https://api.spotify.com/v1/me/top/artists',
 					headers: {
 						'Authorization': 'Bearer ' + access_token
@@ -55,15 +67,17 @@ function getMusicInfo(){
 					success: function(response) {
 						var body = document.getElementsByTagName('body')[0]
 						for (let i = 0; i < response.items.length; i++){
-							let p = document.createElement('p')
+							let span = document.createElement('span')
+              span.className = 'top_artist'
 							let t = document.createTextNode(response.items[i].name)
-							p.append(t)
-							body.append(p)
+							span.append(t)
+							body.append(span)
 						}
 					}
 			});
 		} else {
 				console.log("Fail")
 		}
+
 	}
 }
