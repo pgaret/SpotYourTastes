@@ -82,7 +82,7 @@ function getMusicInfo(){
               img.className = 'list_item-image'
               span.append(img)
               span.append(t_span)
-              document.getElementById('list_items').append(span)
+              document.getElementById('top_artists').append(span)
             }
           }
       });
