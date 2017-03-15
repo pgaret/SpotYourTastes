@@ -3,7 +3,8 @@
 }
 
 .list_item{
-  padding: 2%;
+  padding: 1%;
+  margin: 1%;
   display: inline-block;
   vertical-align: top;
   text-align: center;
