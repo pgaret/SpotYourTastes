@@ -154,6 +154,7 @@ function handleRecentlyPlayed(response){
     let h3 = document.createElement('h3')
     let t = document.createTextNode('Recently Played')
     h3.append(t)
+    h3.id = 'recent_title'
     document.getElementById('recently_played').append(h3)
     let p = document.createElement('h5')
     let span_or = document.createElement('span')
@@ -171,15 +172,17 @@ function handleRecentlyPlayed(response){
       let span = document.createElement('span')
       span.className = 'list_item'
       let br = document.createElement('br')
-      let top_track = ''; let top_artist = ''
+      let top_track = ''; let top_artist = ''; let top_track_count = 0; let top_artist_count = 0
       for (let j = 0; j < tracks.length; j++){
         if (tracks[j].id === response.items[i].track.id){
           top_track = "*"
+          top_track_count++
         }
       }
       for (let j = 0; j < artists.length; j++){
         if (artists[j].id === response.items[i].track.artists[0].id){
           top_artist = "*"
+          top_artist_count++
         }
       }
       if ((top_track && !top_artist) || (!top_track && top_artist)) { span.style.backgroundColor = 'yellow' }
@@ -188,6 +191,8 @@ function handleRecentlyPlayed(response){
       let t_artist = document.createTextNode(response.items[i].track.artists[0].name)
       span.append(t_name); span.append(br); span.append(t_artist);
       document.getElementById('recently_played').append(span)
+      let count = document.createTextNode(": "+top_track_count+" top tracks & "+top_artist_count+" top artists")
+      document.getElementById('recent_title').append(count)
     }
   }
   else {
