@@ -193,6 +193,12 @@ function handleRecentlyPlayed(response){
       span.append(t_name); span.append(br); span.append(t_artist);
       document.getElementById('recently_played').append(span)
     }
+    if (top_track_count === 0) { top_track_count = 'No top tracks & ' }
+    else if (top_track_count === 1) { top_track_count = '1 top track & ' }
+    else  { top_track_count = top_track_count+' top tracks & ' }
+    if (top_artist_count === 0) { top_artist_count = 'no top artists' }
+    else if (top_artist_count === 1) { top_artist_count = '1 top artist' }
+    else  { top_artist_count = top_artist_count+' top artists' }
     let count = document.createTextNode(": "+top_track_count+" top tracks & "+top_artist_count+" top artists")
     document.getElementById('recent_title').append(count)
   }
