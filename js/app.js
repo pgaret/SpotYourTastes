@@ -199,7 +199,7 @@ function handleRecentlyPlayed(response){
     if (top_artist_count === 0) { top_artist_count = 'no top artists' }
     else if (top_artist_count === 1) { top_artist_count = '1 top artist' }
     else  { top_artist_count = top_artist_count+' top artists' }
-    let count = document.createTextNode(": "+top_track_count+" top tracks & "+top_artist_count+" top artists")
+    let count = document.createTextNode(": "+top_track_count+top_artist_count)
     document.getElementById('recent_title').append(count)
   }
   else {
