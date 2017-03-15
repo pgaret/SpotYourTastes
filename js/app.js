@@ -168,11 +168,12 @@ function handleRecentlyPlayed(response){
     p.append(span_or)
     p.append(span_and)
     document.getElementById('recently_played').append(p)
+    let top_track_count = 0; let top_artist_count = 0
     for (let i = 0; i < response.items.length; i++){
       let span = document.createElement('span')
       span.className = 'list_item'
       let br = document.createElement('br')
-      let top_track = ''; let top_artist = ''; let top_track_count = 0; let top_artist_count = 0
+      let top_track = ''; let top_artist = '';
       for (let j = 0; j < tracks.length; j++){
         if (tracks[j].id === response.items[i].track.id){
           top_track = "*"
@@ -192,8 +193,8 @@ function handleRecentlyPlayed(response){
       span.append(t_name); span.append(br); span.append(t_artist);
       document.getElementById('recently_played').append(span)
       let count = document.createTextNode(": "+top_track_count+" top tracks & "+top_artist_count+" top artists")
-      document.getElementById('recent_title').append(count)
     }
+    document.getElementById('recent_title').append(count)
   }
   else {
     setTimeout(handleRecentlyPlayed(response))
