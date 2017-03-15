@@ -64,7 +64,7 @@ function getMusicInfo(){
 					}
 			});
       $.ajax({
-          url: 'https://api.spotify.com/v1/me/top/tracks?limit=5&time_range=long_term',
+          url: 'https://api.spotify.com/v1/me/top/tracks?limit=20&time_range=long_term',
           headers: {
             'Authorization': 'Bearer ' + access_token
           },
@@ -75,10 +75,31 @@ function getMusicInfo(){
             let t = document.createTextNode('Top Tracks')
             h3.append(t)
             document.getElementById('top_tracks').append(h3)
+            for (let i = 0; i < response.items.length; i++){
+              let br = document.createElement('br')
+              let br1 = document.createElement('br')
+              let br2 = document.createElement('br')
+              let span = document.createElement('span')
+              span.className = 'list_item'
+              let img_url = response.items[i].album.images.length > 0 ? response.items[i].album.images[0].url : 'img/placeholder1.png'
+              let t_span = document.createElement('span')
+              let t_name = document.createTextNode(response.items[i].name)
+              let t_album = document.createTextNode("Album: "+response.items[i].name)
+              let t_artist = document.createTextNode("Artist: "+response.items[i].artists[0].name)
+              let t_pop = document.createTextNode("Global popularity: "+response.items[i].popularity+"/100")
+              t_span.className = 'list_item-caption'
+              t_span.append(t_name); t_span.append(br); t_span.append(t_artist); t.span.append(br1); t_span.append(t_album); t_span.append(br2); t_span.append(t_pop)
+              let img = document.createElement('img')
+              img.src = img_url
+              img.className = 'list_item-image'
+              span.append(img)
+              span.append(t_span)
+              document.getElementById('top_tracks').append(span)
+            }
           }
       });
       $.ajax({
-          url: 'https://api.spotify.com/v1/me/top/artists?limit=5&time_range=long_term',
+          url: 'https://api.spotify.com/v1/me/top/artists?limit=20&time_range=long_term',
           headers: {
             'Authorization': 'Bearer ' + access_token
           },
