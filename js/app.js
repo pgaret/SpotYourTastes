@@ -84,7 +84,7 @@ function getMusicInfo(){
               let img_url = response.items[i].album.images.length > 0 ? response.items[i].album.images[0].url : 'img/placeholder1.png'
               let t_span = document.createElement('span')
               let t_name = document.createTextNode(response.items[i].name)
-              let t_album = document.createTextNode("Album: "+response.items[i].name)
+              let t_album = document.createTextNode("Album: "+response.items[i].album.name)
               let t_artist = document.createTextNode("Artist: "+response.items[i].artists[0].name)
               let t_pop = document.createTextNode("Global popularity: "+response.items[i].popularity+"/100")
               t_span.className = 'list_item-caption'
