@@ -3,14 +3,14 @@
 }
 
 .list_item{
-  padding: 3%;
+  padding: 2%;
   display: inline-block;
   vertical-align: top;
   text-align: center;
 }
 
 .list_item-image{
-  height: 150px;
+  height: 100px;
 }
 
 .list_item-caption{
