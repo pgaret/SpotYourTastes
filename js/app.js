@@ -155,7 +155,7 @@ function handleRecentlyPlayed(response){
     let t = document.createTextNode('Recently Played')
     h3.append(t)
     document.getElementById('recently_played').append(h3)
-    let p = document.createElement('p')
+    let p = document.createElement('h5')
     let span_or = document.createElement('span')
     span_or.style.backgroundColor = 'yellow'
     let t_or = document.createTextNode('Top Track Or Top Artist ')
