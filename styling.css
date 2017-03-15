@@ -1,8 +1,14 @@
 .top_artist{
   padding: 3%;
-  display: inline-flex;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
 }
 
 .top_artist-image{
   height: 100px;
+}
+
+.top_artist-caption{
+  display: block;
 }
