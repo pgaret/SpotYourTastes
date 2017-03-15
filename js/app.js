@@ -54,11 +54,10 @@ function getMusicInfo(){
 					},
 					success: function(response) {
             console.log(response)
-						var body = document.getElementsByTagName('body')[0]
             let h1 = document.createElement('h1')
             let t = document.createTextNode(response.id+"'s Taste")
             h1.append(t)
-            body.append(h1)
+            document.getElementById('title').append(h1)
 					}
 			});
       $.ajax({
@@ -68,7 +67,6 @@ function getMusicInfo(){
           },
           success: function(response) {
             console.log(response)
-            var body = document.getElementsByTagName('body')[0]
             for (let i = 0; i < response.items.length; i++){
               let span = document.createElement('span')
               span.className = 'top_artist'
@@ -82,7 +80,7 @@ function getMusicInfo(){
               img.className = 'top_artist-image'
               span.append(img)
               span.append(t_span)
-              body.append(span)
+              document.getElementById('top_artists').append(span)
             }
           }
       });
