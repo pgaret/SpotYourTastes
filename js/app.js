@@ -61,6 +61,15 @@ function getMusicInfo(){
 					}
 			});
       $.ajax({
+          url: 'https://api.spotify.com/v1/me/top/albums?limit=5&time_range=long_term',
+          headers: {
+            'Authorization': 'Bearer ' + access_token
+          },
+          success: function(response) {
+            console.log(response)
+          }
+      });
+      $.ajax({
           url: 'https://api.spotify.com/v1/me/top/artists?limit=5&time_range=long_term',
           headers: {
             'Authorization': 'Bearer ' + access_token
