@@ -158,8 +158,8 @@ function handleRecentlyPlayed(response){
     for (let i = 0; i < response.items.length; i++){
       let p = document.createElement('p')
       let br = document.createElement('br')
-      let t_name = document.createTextNode(response.items[i].name)
-      let t_artist = document.createTextNode(response.items[i].artists[0].name)
+      let t_name = document.createTextNode(response.items[i].track.name)
+      let t_artist = document.createTextNode(response.items[i].track.artists[0].name)
       p.append(t_name); p.append(br); p.append(t_artist);
       document.getElementById('recently_played').append(p)
     }
