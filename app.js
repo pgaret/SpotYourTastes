@@ -71,15 +71,16 @@ function getMusicInfo(){
             var body = document.getElementsByTagName('body')[0]
             for (let i = 0; i < response.items.length; i++){
               let span = document.createElement('span')
+              let div = document.createElement('div')
               span.className = 'top_artist'
               let t = document.createTextNode(response.items[i].name)
               if (response.items[i].images.length > 0){
                 let img = document.createElement('img')
                 img.src = response.items[i].images[0].url
                 img.className = 'top_artist-image'
-                span.append(img)
-                span.append(document.createElement('br'))
+                div.append(img)
               }
+              span.append(div)
               span.append(t)
               body.append(span)
             }
