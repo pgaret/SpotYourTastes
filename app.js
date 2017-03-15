@@ -85,7 +85,6 @@ function getMusicInfo(){
           },
           success: function(response) {
             console.log(response)
-            }
           }
       });
 		} else {
