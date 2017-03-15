@@ -156,7 +156,8 @@ function handleRecentlyPlayed(response){
     h3.append(t)
     document.getElementById('recently_played').append(h3)
     for (let i = 0; i < response.items.length; i++){
-      let p = document.createElement('p')
+      let span = document.createElement('span')
+      span.className = 'list_item'
       let br = document.createElement('br')
       let top_track = ''; let top_artist = ''
       for (let j = 0; j < tracks.length; j++){
@@ -171,7 +172,7 @@ function handleRecentlyPlayed(response){
       }
       let t_name = document.createTextNode(response.items[i].track.name+top_track)
       let t_artist = document.createTextNode(response.items[i].track.artists[0].name+top_artist)
-      p.append(t_name); p.append(br); p.append(t_artist);
+      span.append(t_name); p.append(br); p.append(t_artist);
       document.getElementById('recently_played').append(p)
     }
   }
