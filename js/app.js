@@ -81,7 +81,7 @@ function getMusicInfo(){
               img.src = img_url
               img.className = 'top_artist-image'
               span.append(img)
-              span.append(t)
+              span.append(t_span)
               body.append(span)
             }
           }
