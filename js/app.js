@@ -55,32 +55,34 @@ function getMusicInfo(){
 					success: function(response) {
             console.log(response)
             let h1 = document.createElement('h1')
-            let t = document.createTextNode(response.id+"'s Taste")
+            let t = document.createTextNode(response.id)
             h1.append(t)
             document.getElementById('title').append(h1)
 					}
 			});
       $.ajax({
-          url: 'https://api.spotify.com/v1/me/top/artists',
+          url: 'https://api.spotify.com/v1/me/top/artists?limit=5&time_range=long_term',
           headers: {
             'Authorization': 'Bearer ' + access_token
           },
           success: function(response) {
             console.log(response)
             for (let i = 0; i < response.items.length; i++){
+              let br = document.createElement('br')
               let span = document.createElement('span')
-              span.className = 'top_artist'
+              span.className = 'list_item'
               let img_url = response.items[i].images.length > 0 ? response.items[i].images[0].url : 'img/placeholder1.png'
               let t_span = document.createElement('span')
-              let t = document.createTextNode(response.items[i].name)
-              t_span.className = 'top_artist-caption'
+              let t_name = document.createTextNode(response.items[i].name)
+              let t_pop = document.createTextNode(response.items[i].popularity+"/100")
+              t_span.className = 'list_item-caption'
               t_span.append(t)
               let img = document.createElement('img')
               img.src = img_url
-              img.className = 'top_artist-image'
+              img.className = 'list_item-image'
               span.append(img)
               span.append(t_span)
-              document.getElementById('top_artists').append(span)
+              document.getElementById('list_items').append(span)
             }
           }
       });
@@ -91,6 +93,9 @@ function getMusicInfo(){
           },
           success: function(response) {
             console.log(response)
+            for (let i = 0; i < response.items.length; i++){
+              
+            }
           }
       });
 		} else {

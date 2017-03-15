@@ -1,14 +1,18 @@
-.top_artist{
+#title{
+  margin: 2%;
+}
+
+.list_item{
   padding: 3%;
   display: inline-block;
   vertical-align: top;
   text-align: center;
 }
 
-.top_artist-image{
+.list_item-image{
   height: 100px;
 }
 
-.top_artist-caption{
+.list_item-caption{
   display: block;
 }
