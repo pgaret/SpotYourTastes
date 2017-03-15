@@ -155,6 +155,14 @@ function handleRecentlyPlayed(response){
     let t = document.createTextNode('Recently Played')
     h3.append(t)
     document.getElementById('recently_played').append(h3)
+    for (let i = 0; i < response.items.length; i++){
+      let p = document.createElement('p')
+      let br = document.createElement('br')
+      let t_name = document.createTextNode(response.items[i].name)
+      let t_artist = document.createTextNode(response.items[i].artists[0].name)
+      p.append(t_name); p.append(br); p.append(t_artist);
+      document.getElementById('recently_played').append(p)
+    }
   }
   else {
     setTimeout(handleRecentlyPlayed(response))
