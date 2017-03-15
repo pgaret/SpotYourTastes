@@ -192,8 +192,8 @@ function handleRecentlyPlayed(response){
       let t_artist = document.createTextNode(response.items[i].track.artists[0].name)
       span.append(t_name); span.append(br); span.append(t_artist);
       document.getElementById('recently_played').append(span)
-      let count = document.createTextNode(": "+top_track_count+" top tracks & "+top_artist_count+" top artists")
     }
+    let count = document.createTextNode(": "+top_track_count+" top tracks & "+top_artist_count+" top artists")
     document.getElementById('recent_title').append(count)
   }
   else {
