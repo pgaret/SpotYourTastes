@@ -11,7 +11,7 @@ function handleSpotify(){
 	var state_key = 'spotify_auth_state'
 
 	var client_id = '989f3f3de3af4e5796d9b5e15bc87aeb'
-	var redirect_uri = 'http://pgaret.github.io/music'
+	var redirect_uri = 'https://pgaret.github.io/SpotYourTastes/music'
 	var state = generateRandomString(16)
 
 	localStorage.setItem(state_key, state)
