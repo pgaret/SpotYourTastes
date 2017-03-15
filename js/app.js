@@ -11,7 +11,6 @@ function generateRandomString(length) {
 }
 
 function handleSpotify(){
-  debugger
 	var state_key = 'spotify_auth_state'
 
 	var client_id = '989f3f3de3af4e5796d9b5e15bc87aeb'
@@ -147,10 +146,6 @@ function getMusicInfo(){
 				console.log("Fail")
 		}
 	}
-}
-
-function logout(){
-  window.url = 'pgaret.github.io/SpotYourTastes'
 }
 
 function handleRecentlyPlayed(response){
