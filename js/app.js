@@ -71,7 +71,10 @@ function getMusicInfo(){
           success: function(response) {
             console.log(response)
             tracks = response.items
-            document.getElementById('top_tracks').append(document.createElement('h3').append(document.createTextNode('Top Tracks')))
+            let h3 = document.createElement('h3')
+            let t = document.createTextNode('Top Tracks')
+            h3.append(t)
+            document.getElementById('top_tracks').append(h3)
           }
       });
       $.ajax({
@@ -82,7 +85,10 @@ function getMusicInfo(){
           success: function(response) {
             console.log(response)
             artists = response.items
-            document.getElementById('top_artists').append(document.createElement('h3').append(document.createTextNode('Top Artists')))
+            let h3 = document.createElement('h3')
+            let t = document.createTextNode('Top Artists')
+            h3.append(t)
+            document.getElementById('top_tracks').append(h3
             for (let i = 0; i < response.items.length; i++){
               let br = document.createElement('br')
               let br1 = document.createElement('br')
@@ -124,6 +130,10 @@ function getMusicInfo(){
 function handleRecentlyPlayed(response){
   if (tracks.length > 0 && artists.length > 0){
     console.log(response)
+    let h3 = document.createElement('h3')
+    let t = document.createTextNode('Recently Played')
+    h3.append(t)
+    document.getElementById('recently_played').append(h3
   }
   else {
     setTimeout(handleRecentlyPlayed(response))
