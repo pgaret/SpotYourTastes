@@ -53,6 +53,7 @@ function getMusicInfo(){
 						'Authorization': 'Bearer ' + access_token
 					},
 					success: function(response) {
+            console.log(response)
 						var body = document.getElementsByTagName('body')[0]
             let h1 = document.createElement('h1')
             let t = document.createTextNode(response.id+"'s Taste")
@@ -66,6 +67,7 @@ function getMusicInfo(){
             'Authorization': 'Bearer ' + access_token
           },
           success: function(response) {
+            console.log(response)
             var body = document.getElementsByTagName('body')[0]
             for (let i = 0; i < response.items.length; i++){
               let span = document.createElement('span')
@@ -73,6 +75,16 @@ function getMusicInfo(){
               let t = document.createTextNode(response.items[i].name)
               span.append(t)
               body.append(span)
+            }
+          }
+      });
+      $.ajax({
+          url: 'https://api.spotify.com/v1/me/player/recently-played',
+          headers: {
+            'Authorization': 'Bearer ' + access_token
+          },
+          success: function(response) {
+            console.log(response)
             }
           }
       });
