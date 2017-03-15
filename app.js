@@ -53,7 +53,11 @@ function getMusicInfo(){
 						'Authorization': 'Bearer ' + access_token
 					},
 					success: function(response) {
-						console.log(response)
+						var body = document.getElementsByTagName('body')[0]
+            let h1 = document.createElement('h1')
+            let t = document.createTextNode(response.id+"'s Taste")
+            h1.append(t)
+            body.append(h1)
 					}
 			});
       $.ajax({
