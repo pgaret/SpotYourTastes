@@ -72,11 +72,13 @@ function getMusicInfo(){
               let span = document.createElement('span')
               span.className = 'list_item'
               let img_url = response.items[i].images.length > 0 ? response.items[i].images[0].url : 'img/placeholder1.png'
+              let followers = response.items[i].followers.total ? response.items[i].followers.total : "None"
               let t_span = document.createElement('span')
               let t_name = document.createTextNode(response.items[i].name)
-              let t_pop = document.createTextNode(response.items[i].popularity+"/100")
+              let t_pop = document.createTextNode("Global popularity: "+response.items[i].popularity+"/100")
+              let t_foll = document.createTextNode("Followers: "+followers)
               t_span.className = 'list_item-caption'
-              t_span.append(t_name); t_span.append(br); t_span.append(t_pop)
+              t_span.append(t_name); t_span.append(br); t_span.append(t_pop); t_span.append(br); t_span.append(t_foll)
               let img = document.createElement('img')
               img.src = img_url
               img.className = 'list_item-image'
