@@ -88,7 +88,7 @@ function getMusicInfo(){
             let h3 = document.createElement('h3')
             let t = document.createTextNode('Top Artists')
             h3.append(t)
-            document.getElementById('top_tracks').append(h3
+            document.getElementById('top_tracks').append(h3)
             for (let i = 0; i < response.items.length; i++){
               let br = document.createElement('br')
               let br1 = document.createElement('br')
@@ -133,7 +133,7 @@ function handleRecentlyPlayed(response){
     let h3 = document.createElement('h3')
     let t = document.createTextNode('Recently Played')
     h3.append(t)
-    document.getElementById('recently_played').append(h3
+    document.getElementById('recently_played').append(h3)
   }
   else {
     setTimeout(handleRecentlyPlayed(response))
