@@ -88,7 +88,7 @@ function getMusicInfo(){
               let t_artist = document.createTextNode("Artist: "+response.items[i].artists[0].name)
               let t_pop = document.createTextNode("Global popularity: "+response.items[i].popularity+"/100")
               t_span.className = 'list_item-caption'
-              t_span.append(t_name); t_span.append(br); t_span.append(t_artist); t.span.append(br1); t_span.append(t_album); t_span.append(br2); t_span.append(t_pop)
+              t_span.append(t_name); t_span.append(br); t_span.append(t_artist); t_span.append(br1); t_span.append(t_album); t_span.append(br2); t_span.append(t_pop)
               let img = document.createElement('img')
               img.src = img_url
               img.className = 'list_item-image'
