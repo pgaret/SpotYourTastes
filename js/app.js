@@ -1,3 +1,6 @@
+var tracks
+var artists
+
 function generateRandomString(length) {
 	var text = '';
 	var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -61,12 +64,14 @@ function getMusicInfo(){
 					}
 			});
       $.ajax({
-          url: 'https://api.spotify.com/v1/me/top/albums?limit=5&time_range=long_term',
+          url: 'https://api.spotify.com/v1/me/top/tracks?limit=5&time_range=long_term',
           headers: {
             'Authorization': 'Bearer ' + access_token
           },
           success: function(response) {
             console.log(response)
+            tracks = response.items
+            document.getElementById('top_tracks').append(document.createElement('h3').append(document.createTextNode('Top Tracks')))
           }
       });
       $.ajax({
@@ -76,6 +81,8 @@ function getMusicInfo(){
           },
           success: function(response) {
             console.log(response)
+            artists = response.items
+            document.getElementById('top_artists').append(document.createElement('h3').append(document.createTextNode('Top Artists')))
             for (let i = 0; i < response.items.length; i++){
               let br = document.createElement('br')
               let br1 = document.createElement('br')
@@ -105,13 +112,20 @@ function getMusicInfo(){
           },
           success: function(response) {
             console.log(response)
-            for (let i = 0; i < response.items.length; i++){
-
-            }
+            handleRecentlyPlayed(response)
           }
       });
 		} else {
 				console.log("Fail")
 		}
 	}
+}
+
+function handleRecentlyPlayed(response){
+  if (tracks.length > 0 && artists.length > 0){
+    console.log(response)
+  }
+  else {
+    setTimeout(handleRecentlyPlayed(response))
+  }
 }
